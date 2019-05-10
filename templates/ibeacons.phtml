@@ -1,0 +1,27 @@
+<?php
+    $result = array();
+
+    if (count($beacons) > 0) {
+        $result["status"] = 1;
+        $result["statusDescription"] = "OK";
+        $result["data"] = array();
+
+        foreach ($beacons as $beacon) {
+            $ibecon = array();
+
+            error_log(var_export($beacon, true));
+            $ibeacon["id"] = $beacon->beacon_identifier;
+            $ibeacon["img"] = $beacon->beacon_image;
+            $ibeacon["tittle"] = $beacon->beacon_title;
+            $ibeacon["html"] = base64_encode($beacon->beacon_html);
+            $ibeacon["distance"] = $beacon->beacon_distance;
+
+            $result["data"][] = $ibeacon;
+        }
+    } else {
+        $result["status"] = 0;
+        $result["statusDescription"] = "No se encontraron datos";
+    } 
+    
+
+    echo json_encode($result);
