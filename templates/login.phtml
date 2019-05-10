@@ -1,0 +1,15 @@
+<?php
+    $result = array();
+
+    if ($autorizado == 1) {
+        $result["status"] = 1;
+        $result["statusDescription"] = "OK";
+        $result["autorized"] = 1;
+    } else {
+        $result["status"] = 0;
+        $result["statusDescription"] = "Error al intentar ingresar, valide sus datos";
+        $result["autorized"] = 0;
+    } 
+
+    header('Content-Type: application/json');
+    echo json_encode($result);

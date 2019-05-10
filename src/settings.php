@@ -8,9 +8,9 @@ return [
         'db' => [
             'driver' => 'pgsql',
             'host' => 'XXXXXX',
-            'database' => 'XXXX',
-            'username' => 'XXXXX',
-            'password' => 'XXXXX',
+            'database' => 'XXXXXX',
+            'username' => 'XXXXXX',
+            'password' => 'XXXXXX',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
