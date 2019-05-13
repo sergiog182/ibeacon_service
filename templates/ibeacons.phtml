@@ -15,6 +15,7 @@
             $ibeacon["tittle"] = $beacon->beacon_title;
             $ibeacon["html"] = base64_encode($beacon->beacon_html);
             $ibeacon["distance"] = $beacon->beacon_distance;
+            $ibeacon["updateDate"] = $beacon->beacon_update;
 
             $result["data"][] = $ibeacon;
         }

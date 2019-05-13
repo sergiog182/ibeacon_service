@@ -12,8 +12,10 @@ return function (App $app) {
         $data = $request->getParsedBody();
         $limit = $data['page'] * 10;
         $offset = (($limit - 10) > 0) ? (($limit - 10) + 1) : ($limit - 10) ;
-        $tittle = $data['tittle'];
-        error_log("Limit: " . $limit . " <=> Offset: " . $offset . " <=> Tittle: " . $tittle);
+        $tittle = "";
+        if (array_key_exists("tittle", $data)) {
+            $tittle = $data['tittle'];
+        }
         if ($tittle != "" && $tittle != null) {
             $beacons = $container->get('db')->table('beacon')->offset($offset)->limit($limit)->where('beacon_title', 'like', '%' . $tittle . '%')->get()->toArray();
         } else {

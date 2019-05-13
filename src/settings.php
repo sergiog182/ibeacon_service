@@ -7,10 +7,10 @@ return [
         // DB config
         'db' => [
             'driver' => 'pgsql',
-            'host' => 'XXXXXX',
-            'database' => 'XXXXXX',
-            'username' => 'XXXXXX',
-            'password' => 'XXXXXX',
+            'host' => 'XXXXX',
+            'database' => 'XXXXX',
+            'username' => 'XXXXX',
+            'password' => 'XXXXX',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
