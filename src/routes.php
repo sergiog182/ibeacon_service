@@ -17,9 +17,9 @@ return function (App $app) {
             $tittle = $data['tittle'];
         }
         if ($tittle != "" && $tittle != null) {
-            $beacons = $container->get('db')->table('beacon')->offset($offset)->limit($limit)->where('beacon_title', 'like', '%' . $tittle . '%')->get()->toArray();
+            $beacons = $container->get('db')->table('beacons')->offset($offset)->limit($limit)->where('beacon_title', 'like', '%' . $tittle . '%')->get()->toArray();
         } else {
-            $beacons = $container->get('db')->table('beacon')->offset($offset)->limit($limit)->get()->toArray();
+            $beacons = $container->get('db')->table('beacons')->offset($offset)->limit($limit)->get()->toArray();
         }
         $args = array();
         $args["beacons"] = $beacons;
@@ -28,7 +28,7 @@ return function (App $app) {
 
     $app->get('/ibeacons/findall', function (Request $request, Response $response) use ($container) {
         $beacons = array();
-        $beacons = $container->get('db')->table('beacon')->get()->toArray();
+        $beacons = $container->get('db')->table('beacons')->get()->toArray();
         $args = array();
         $args["beacons"] = $beacons;
         return $container->get('renderer')->render($response, 'ibeacons.phtml', $args);
