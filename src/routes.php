@@ -39,7 +39,7 @@ return function (App $app) {
         $user = $data["user"];
         $password = md5($data["password"]);
 
-        $usuario = $container->get('db')->table('login')->limit(1)->where('login_username', $user)->where('login_password', $password)->get()->toArray();
+        $usuario = $container->get('db')->table('users')->limit(1)->where('email', $user)->where('password', $password)->get()->toArray();
         if (count($usuario) == 1) {
             $autorizado = 1;
         } else {
